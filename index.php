@@ -4,7 +4,7 @@
 if(!isset($_SESSION['ts3_last_query']))
     $_SESSION['ts3_last_query'] = microtime(true);
 	
-	date_default_timezone_set('Europa/Italy/Rome'); //Cambia qui!
+	date_default_timezone_set('Europa/Rome'); //Cambia qui!
 	require_once("libraries/TeamSpeak3/TeamSpeak3.php");
 	include 'data/config.php';
 	
