@@ -79,7 +79,7 @@ if(!isset($_SESSION['ts3_last_query']))
                                     <input value="" name="password" required="required" type="password" placeholder="es. X8df!90EO" /> 
 								</p>
 								
-								<div class="g-recaptcha" data-sitekey="keypubblica"></div>
+								<div class="g-recaptcha" data-sitekey="<?php include 'data/keypubblica.php';?>"></div>
 								
                                 <p class="login button"> 
                                     <input type="submit" name="submit" value="Crealo!" /> 
