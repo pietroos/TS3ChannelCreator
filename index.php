@@ -4,7 +4,7 @@
 if(!isset($_SESSION['ts3_last_query']))
     $_SESSION['ts3_last_query'] = microtime(true);
 	
-	date_default_timezone_set('Europa/Rome'); //Cambia qui!
+	date_default_timezone_set('Europa/Rome');
 	require_once("libraries/TeamSpeak3/TeamSpeak3.php");
 	include 'data/config.php';
 	
@@ -79,7 +79,7 @@ if(!isset($_SESSION['ts3_last_query']))
                                     <input value="" name="password" required="required" type="password" placeholder="es. X8df!90EO" /> 
 								</p>
 								
-								<div class="g-recaptcha" data-sitekey="<?php include 'data/keypubblica.php';?>"></div>
+								<div class="g-recaptcha" data-sitekey="<?php include 'data/keypubblica.php'; echo $keypubblica;?>"></div>
 								
                                 <p class="login button"> 
                                     <input type="submit" name="submit" value="Crealo!" /> 
@@ -124,7 +124,7 @@ if ($error == 0) {
 	$password = $_POST['password'];
 	$unixTime = time();
 	$realTime = date('[Y-m-d]-[H:i]',$unixTime);
-	$channel_admin_group = xx; //ID del admin del canale
+	$channel_admin_group = xx; //ID del gruppo Admin del canale
 
 	try
 	{
