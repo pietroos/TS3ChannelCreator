@@ -1,8 +1,4 @@
 # TS3ChannelCreator
-A web channel creator for TeamSpeak3
+<img src=https://img.shields.io/badge/TS3ChannelCreator-V0.2-green.svg>
 
-Per usare lo script avete bisogno di PHP (Io ho usato php5), le immagini e gli stili sono presi da google
-
-Alert: Lo script per ora e' in beta, potrebbe essere pieno di problemi e/o errori, invito a segnalare qualsiasi anomalia nella sezione "Issues"
-
-Created by Pietroos
+This is a fast tool wich you can use for creating channels in your TS3 server
