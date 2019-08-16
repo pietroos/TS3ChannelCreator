@@ -4,7 +4,7 @@
 if(!isset($_SESSION['ts3_last_query']))
     $_SESSION['ts3_last_query'] = microtime(true);
 	
-	date_default_timezone_set('Europa/Rome');
+	date_default_timezone_set('Europe/Rome');
 	require_once("libraries/TeamSpeak3/TeamSpeak3.php");
 	include 'data/config.php';
 	
@@ -90,7 +90,7 @@ if(!isset($_SESSION['ts3_last_query']))
 					</div>
 				</div>  
 			</section>
-			<p>Versione 0.1 by Pietroos</p>
+			<p>Versione 0.3 by Pietroos</p>
 		</div>
 	</body>
 </html>	
