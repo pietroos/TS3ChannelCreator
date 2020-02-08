@@ -39,7 +39,9 @@ if(!isset($_SESSION['ts3_last_query']))
         break;
     }
     if (!$FLAG){
-        echo "<p><b>".$lang['f_connectts'].".</b></p><br/>";
+        echo "<title>Titolo</title>
+			<p><b>Devi entrare nel server TeamSpeak per usare lo script.</b></p>
+			<p><b>You must enter to the TeamSpeak for using the script.</b></p><br/>";
         header("refresh: 10; url = ./");
         die;  
     }
@@ -85,12 +87,11 @@ if(!isset($_SESSION['ts3_last_query']))
                                     <input type="submit" name="submit" value="Crealo!" /> 
 								</p>
 							</form>
+							<p>Versione 0.4 by Pietroos</p>
 						</div>
-						
 					</div>
 				</div>  
 			</section>
-			<p>Versione 0.3 by Pietroos</p>
 		</div>
 	</body>
 </html>	
@@ -103,47 +104,36 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])) {
 		$secret = $secret_key;
         $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
         $responseData = json_decode($verifyResponse);
-        if($responseData->success) {
-			}
-		else {
-			$error++;
-		}
-		}
-	else {
-		$error++;
 	}
 }
 else {
 	$errMsg = '';
-    $succMsg = '';
+	$succMsg = '';
 }
 
 if ($error == 0) {
 	if(isset($_POST['submit'])) {
-	$channelname = $_POST['channelname'];
-	$password = $_POST['password'];
-	$unixTime = time();
-	$realTime = date('[Y-m-d]-[H:i]',$unixTime);
-	$channel_admin_group = xx; //ID del gruppo Admin del canale
+		$channelname = $_POST['channelname'];
+		$password = $_POST['password'];
+		$unixTime = time();
+		$realTime = date('[Y-m-d]-[H:i]',$unixTime);
+		$channel_admin_group = $idgroup;
 
-	try
-	{
-		$cid1 = $ts3->channelCreate(array(
-		"channel_name" => "$channelname",
-		"channel_password" => "$password",
-		"channel_flag_permanent" => "1",
-		"channel_description" => '[center][b][u]'.$channelname.'[/u][/b][/center][hr][b][list][*]Creato il: '.$realTime.'[*]Propietario: ' . $client_nickname . '[/list][/b]',
-		"channel_order" => "$order"));
+		try {
+			$cid1 = $ts3->channelCreate(array(
+			"channel_name" => "$channelname",
+			"channel_password" => "$password",
+			"channel_flag_permanent" => "1",
+			"channel_description" => '[center][b][u]'.$channelname.'[/u][/b][/center][hr][b][list][*]Creato il: '.$realTime.'[*]Propietario: ' . $client_nickname . '[/list][/b]',
+			"channel_order" => "$order"));
 
-		$ts3->clientGetByUid($clientuid)->setChannelGroup($cid1, $channel_admin_group);
-		$ts3->clientMove($client_clid, $cid1);
-
+			$ts3->clientGetByUid($clientuid)->setChannelGroup($cid1, $channel_admin_group);
+			$ts3->clientMove($client_clid, $cid1);
+		}
+		catch(Exception $e) {
+			echo "Error (ID " . $e->getCode() . ") <b>" . $e->getMessage() . "</b>";
+		}
 	}
-	catch(Exception $e)
-	{
-		echo "Error (ID " . $e->getCode() . ") <b>" . $e->getMessage() . "</b>";
-	}
-}
 }
 
 else {
