@@ -1,5 +1,5 @@
 ## TS3ChannelCreator
-<img src=https://img.shields.io/badge/TS3ChannelCreator-V0.2-green.svg>
+<img src=https://img.shields.io/badge/TS3ChannelCreator-v0.4-green.svg>
 
 This is a fast tool wich you can use for creating channels in your TS3 server
 
@@ -9,7 +9,7 @@ To install this tool, you need to upload all the files in your webserver, subseq
 
 ## Use
 
-For use this tool after the installation is done, you need to access to your webserver, and go to index.php file.
+For use this tool, after the installation is done, you need to access to your webserver, and go to index.php file.
 The tool don't work if you are not in the TeamSpeak server
 
 ## Contribute
